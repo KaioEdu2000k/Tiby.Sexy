@@ -2728,6 +2728,14 @@ img {
         grid-template-columns: repeat(2, 1fr) !important; /* 2 colunas no mobile para ficar bem compacto */
         gap: 12px;
     }
+    .wishlist-heart-btn {
+        top: auto !important;
+        bottom: 12px !important;
+        right: 12px !important;
+        height: 32px !important;
+        width: 32px !important;
+        font-size: 0.85rem !important;
+    }
     .app-filter-controls {
         flex-direction: column;
         border-radius: var(--border-radius-md);
