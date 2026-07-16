@@ -1,4 +1,4 @@
-
+ 
 // 1. BANCO DE DADOS DE PRODUTOS (COM CORES E TAMANHOS)
 const PRODUCTS_DATA = [
     {
@@ -167,13 +167,11 @@ document.addEventListener("DOMContentLoaded", () => {
     updateFavoritesBadge();
     setupEventListeners();
     
-    // Executa roteador inicial
     router();
 });
 
 window.addEventListener("hashchange", router);
 
-// Roteador SPA baseado em Hash
 function router() {
     const hash = window.location.hash;
     const match = hash.match(/^#produto\/(\d+)$/);
@@ -195,7 +193,7 @@ function router() {
 
 // 4. EVENT LISTENERS
 function setupEventListeners() {
-    // Menu Mobile
+    
     document.getElementById("open-mobile-menu").addEventListener("click", () => {
         mobileMenu.classList.add("active");
     });
@@ -222,7 +220,6 @@ function setupEventListeners() {
 // 5. NAVEGAÇÃO DE PÁGINAS (SPA)
 function showCatalogView() {
     showingFavoritesOnly = false;
-    // Oculta Detalhes
     detailsView.style.display = "none";
 
     welcomeSection.style.display = "block";
