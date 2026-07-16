@@ -1,6 +1,3 @@
-/* ==========================================================================
-   TIBY.SEXY - LÓGICA E REGRAS DE NEGÓCIO DO CATÁLOGO DIGITAL (VANILLA JS)
-   ========================================================================== */
 
 // 1. BANCO DE DADOS DE PRODUTOS (COM CORES E TAMANHOS)
 const PRODUCTS_DATA = [
@@ -144,7 +141,6 @@ let showingFavoritesOnly = false;
 let defaultCatalogTitle = "Produtos em Destaque";
 const WHATSAPP_NUMBER = "5521991670127";
 
-// Seletores das visualizações
 const welcomeSection = document.querySelector(".app-welcome-section");
 const filterSection = document.querySelector(".app-filter-section");
 const productsSection = document.querySelector(".app-products-section");
@@ -155,7 +151,6 @@ const productsGrid = document.getElementById("products-catalog-grid");
 const favBadge = document.getElementById("favorites-badge-count");
 const mobileMenu = document.getElementById("mobile-menu-panel");
 
-// Estado da página de detalhes ativa
 let selectedDetailProduct = null;
 let selectedDetailSize = null;
 let selectedDetailColor = null;
@@ -211,12 +206,10 @@ function setupEventListeners() {
         mobileMenu.classList.remove("active");
     });
 
-    // Favorites Trigger
     document.getElementById("btn-favorites-trigger").addEventListener("click", () => {
         window.location.hash = "#favoritos";
     });
 
-    // Foco e teclado ao clicar na lupa
     const searchBtn = document.querySelector(".search-btn-app");
     const searchInput = document.getElementById("input-search-app");
     if (searchBtn && searchInput) {
@@ -231,14 +224,12 @@ function showCatalogView() {
     showingFavoritesOnly = false;
     // Oculta Detalhes
     detailsView.style.display = "none";
-    
-    // Mostra Vitrine
+
     welcomeSection.style.display = "block";
     filterSection.style.display = "block";
     productsSection.style.display = "block";
     vipSection.style.display = "block";
     
-    // Sincroniza estado de filtros na UI
     const dropdown = document.getElementById("select-category-dropdown");
     if (dropdown) dropdown.value = currentFilter;
     
@@ -256,7 +247,6 @@ function goBackToCatalog() {
     window.location.hash = "#";
 }
 
-// 6. RENDERIZAR VITRINE
 function renderCatalog() {
     if (!productsGrid) return;
     productsGrid.innerHTML = "";
@@ -285,17 +275,14 @@ function renderCatalog() {
         const card = document.createElement("div");
         card.className = "product-card";
         
-        // Evita comportamento nativo de long-press/drag e define clique
         card.addEventListener("click", () => navigateToProduct(product.id));
         card.addEventListener("contextmenu", e => e.preventDefault());
         card.addEventListener("dragstart", e => e.preventDefault());
         
-        // Badges
         let badgeHtml = "";
         if (product.isNew) badgeHtml = `<span class="badge-tag tag-new">Novo</span>`;
         else if (product.isHot) badgeHtml = `<span class="badge-tag tag-hot">Mais Vendido</span>`;
 
-        // Tamanhos
         let sizeBadgesHtml = "";
         if (product.sizes.length > 0) {
             sizeBadgesHtml = `<div class="product-size-badges">` + 
@@ -336,7 +323,6 @@ function handleDropdownFilter(catVal) {
     renderCatalog();
 }
 
-// Permite buscar digitando
 function handleSearchInput(query) {
     currentSearch = query;
     renderCatalog();
@@ -430,7 +416,6 @@ function showFavoritesOnly(shouldScroll = true) {
             const card = document.createElement("div");
             card.className = "product-card";
             
-            // Evita comportamento nativo de long-press/drag e define clique
             card.addEventListener("click", () => navigateToProduct(product.id));
             card.addEventListener("contextmenu", e => e.preventDefault());
             card.addEventListener("dragstart", e => e.preventDefault());
@@ -472,23 +457,19 @@ function renderProductDetails(productId) {
         return;
     }
 
-    // Atualiza Estado
     selectedDetailProduct = product;
     selectedDetailSize = product.sizes.length > 0 ? product.sizes[0] : null;
     selectedDetailColor = product.colors.length > 0 ? product.colors[0] : null;
     selectedDetailQty = 1;
 
-    // Oculta Catálogo/Vitrine
     welcomeSection.style.display = "none";
     filterSection.style.display = "none";
     productsSection.style.display = "none";
     vipSection.style.display = "none";
 
-    // Mostra Detalhes
     detailsView.style.display = "block";
     detailsView.innerHTML = "";
 
-    // Grade de tamanhos HTML
     let sizeSelectorHtml = "";
     if (product.sizes.length > 0) {
         sizeSelectorHtml = `
@@ -503,7 +484,6 @@ function renderProductDetails(productId) {
         `;
     }
 
-    // Grade de cores HTML
     let colorSelectorHtml = "";
     if (product.colors.length > 0) {
         colorSelectorHtml = `
@@ -563,7 +543,6 @@ function renderProductDetails(productId) {
         </div>
     `;
 
-    // Sobe a página ao topo
     window.scrollTo(0, 0);
 }
 
