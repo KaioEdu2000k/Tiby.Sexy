@@ -607,9 +607,8 @@ function buyProductWhatsApp() {
     let qtyText = selectedDetailQty > 1 ? `\n- Quantidade: *${selectedDetailQty}x*` : "";
     
     let message = `Olá, tenho interesse no *${selectedDetailProduct.name}*.${sizeText}${colorText}${qtyText}`;
-    const encodedMessage = encodeURIComponent(message);
     
-    openSellerModal(encodedMessage);
+    openSellerModal(message);
 }
 
 // 12. MODAL INSTITUCIONAL (AJUDA E SUPORTE)
