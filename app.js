@@ -603,12 +603,12 @@ function buyProductWhatsApp() {
     if (!selectedDetailProduct) return;
     
     let detailsArr = [];
-    if (selectedDetailSize) detailsArr.push(`- Tamanho: ${selectedDetailSize}`);
-    if (selectedDetailColor) detailsArr.push(`- Cor: ${selectedDetailColor}`);
-    if (selectedDetailQty > 1) detailsArr.push(`- Quantidade: ${selectedDetailQty}x`);
+    if (selectedDetailSize) detailsArr.push(`Tamanho: ${selectedDetailSize}`);
+    if (selectedDetailColor) detailsArr.push(`Cor: ${selectedDetailColor}`);
+    if (selectedDetailQty > 1) detailsArr.push(`Quantidade: ${selectedDetailQty}x`);
     
-    let detailsText = detailsArr.length > 0 ? `\n\n${detailsArr.join('\n')}` : "";
-    let message = `Olá! Tenho interesse no ${selectedDetailProduct.name}.${detailsText}`;
+    let detailsText = detailsArr.length > 0 ? `\n${detailsArr.join('\n')}` : "";
+    let message = `Olá! Tenho interesse no ${selectedDetailProduct.name}${detailsText}`;
     
     openSellerModal(message);
 }
