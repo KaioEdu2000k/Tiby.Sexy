@@ -152,7 +152,7 @@ function router() {
         welcomeSection.style.display = "block";
         filterSection.style.display = "block";
         productsSection.style.display = "block";
-        vipSection.style.display = "block";
+        if (vipSection) vipSection.style.display = "block";
         showFavoritesOnly();
     } else {
         showCatalogView();
@@ -197,7 +197,7 @@ function showCatalogView() {
     welcomeSection.style.display = "block";
     filterSection.style.display = "block";
     productsSection.style.display = "block";
-    vipSection.style.display = "block";
+    if (vipSection) vipSection.style.display = "block";
     
     // Sincroniza estado de filtros na UI
     const dropdown = document.getElementById("select-category-dropdown");
@@ -443,7 +443,7 @@ function renderProductDetails(productId) {
     welcomeSection.style.display = "none";
     filterSection.style.display = "none";
     productsSection.style.display = "none";
-    vipSection.style.display = "none";
+    if (vipSection) vipSection.style.display = "none";
 
     // Mostra Detalhes
     detailsView.style.display = "block";
@@ -549,7 +549,30 @@ function adjustDetailsQty(delta) {
     document.getElementById("details-qty-value").textContent = selectedDetailQty;
 }
 
-// 11. REDIRECIONAR AO WHATSAPP (BOTÃO DE COMPRA DA PÁGINA DE DETALHES)
+// 11. REDIRECIONAR AO WHATSAPP (SELEÇÃO DE VENDEDORAS)
+let pendingWhatsAppMessage = "";
+
+function openSellerModal(msgOrType) {
+    if (msgOrType === 'general' || !msgOrType) {
+        pendingWhatsAppMessage = encodeURIComponent("Olá! Estou navegando no catálogo Tiby.sexy e gostaria de tirar uma dúvida.");
+    } else {
+        pendingWhatsAppMessage = msgOrType;
+    }
+    const modal = document.getElementById("seller-choice-modal");
+    if (modal) modal.style.display = "flex";
+}
+
+function closeSellerModal() {
+    const modal = document.getElementById("seller-choice-modal");
+    if (modal) modal.style.display = "none";
+}
+
+function selectSellerAndRedirect(phone) {
+    closeSellerModal();
+    const url = `https://api.whatsapp.com/send?phone=${phone}&text=${pendingWhatsAppMessage}`;
+    window.open(url, "_blank");
+}
+
 function buyProductWhatsApp() {
     if (!selectedDetailProduct) return;
     
@@ -559,9 +582,8 @@ function buyProductWhatsApp() {
     
     let message = `Olá, tenho interesse no *${selectedDetailProduct.name}*.${sizeText}${colorText}${qtyText}`;
     const encodedMessage = encodeURIComponent(message);
-    const whatsappLink = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodedMessage}`;
     
-    window.open(whatsappLink, "_blank");
+    openSellerModal(encodedMessage);
 }
 
 // 12. MODAL INSTITUCIONAL (AJUDA E SUPORTE)
@@ -582,7 +604,7 @@ function openInstModal(pageKey) {
                 <li>Selecione suas opções de <strong>tamanho</strong>, <strong>cor</strong> e a <strong>quantidade</strong>.</li>
                 <li>Clique no botão destacado <strong>COMPRAR PELO WHATSAPP</strong>.</li>
                 <li>O sistema abrirá o chat oficial da Tiby com a mensagem pronta descrevendo o item escolhido.</li>
-                <li>Nossa vendedora informará sobre a disponibilidade física e finalizará seu faturamento.</li>
+                <li>Nossa vendedora informará sobre a disponibilidade física, valores especiais utilizando cupons de desconto e finalizará seu faturamento.</li>
             </ol>
         `;
     } else if (pageKey === "exchange-policy") {
