@@ -564,12 +564,20 @@ function openSellerModal(message) {
     if (fernandaLink) fernandaLink.href = `https://wa.me/5531980207495?text=${encodedText}`;
     
     const modal = document.getElementById("seller-choice-modal");
-    if (modal) modal.style.display = "flex";
+    if (modal) {
+        modal.style.display = "flex";
+        modal.classList.add("active");
+    }
 }
 
 function closeSellerModal() {
     const modal = document.getElementById("seller-choice-modal");
-    if (modal) modal.style.display = "none";
+    if (modal) {
+        modal.classList.remove("active");
+        setTimeout(() => {
+            modal.style.display = "none";
+        }, 300);
+    }
 }
 
 function buyProductWhatsApp() {
