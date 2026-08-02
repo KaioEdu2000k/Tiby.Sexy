@@ -48,7 +48,7 @@ const PRODUCTS_DATA = [
         name: "Conjunto Obsessão",
         category: "lingeries",
         priceRegular: 109.90,
-        pricePromo: 99.90,
+        pricePromo: 99.99,
         image: "assets/Conjunto Obsessão.jpeg",
         sizes: ["GG"],
         colors: [],
