@@ -577,8 +577,8 @@ function openSellerModal(message) {
     const mariaLink = document.getElementById("seller-link-maria");
     const fernandaLink = document.getElementById("seller-link-fernanda");
     
-    if (mariaLink) mariaLink.href = `https://wa.me/5531984818979?text=${encodedText}`;
-    if (fernandaLink) fernandaLink.href = `https://wa.me/5531980207495?text=${encodedText}`;
+    if (mariaLink) mariaLink.href = `https://api.whatsapp.com/send?phone=5531984818979&text=${encodedText}`;
+    if (fernandaLink) fernandaLink.href = `https://api.whatsapp.com/send?phone=5531980207495&text=${encodedText}`;
     
     updateSellerOnlineStatus();
 
