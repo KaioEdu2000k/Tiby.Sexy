@@ -4,29 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <!-- SEO Meta Tags -->
     <title>Tiby.sexy | Catálogo Virtual de Lingeries</title>
     <meta name="description" content="Faça seu pedido através do nosso catálogo virtual. Peças premium que unem elegância, conforto e sensualidade.">
     <meta name="keywords" content="lingerie, tiby sexy, catálogo virtual, moda intima, body de renda">
     
+    <!-- Google Fonts: Playfair Display (Serif Elegante) e Montserrat (Sans-serif Moderna) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     
+    <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- Custom Style Sheet -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="app-layout">
 
-    <div class="announcement-bar" id="announcement-bar-main">
-        <div class="announcement-slider">
-            <span><i class="fa-solid fa-truck-fast"></i> ENVIAMOS PARA TODO O BRASIL 🖤</span>
-            <span><i class="fa-solid fa-tags"></i> ATACADO: PEDIDO MÍNIMO DE 3 PEÇAS</span>
-            <span><i class="fa-solid fa-percent"></i> DESCONTOS PROGRESSIVOS EXCLUSIVOS</span>
-        </div>
-    </div>
-
-    <!-- 2. CABEÇALHO -->
+    <!-- 2. CABEÇALHO COMPACTO DE APP (HEADER) -->
     <header class="main-header app-header" id="main-navigation-header">
         <div class="header-container">
             <!-- Menu Hambúrguer (Esquerda) -->
@@ -34,12 +30,14 @@
                 <i class="fa-solid fa-bars-staggered"></i>
             </button>
 
+            <!-- Logo Circular (Centro) -->
             <div class="logo-wrapper app-logo-wrapper">
                 <a href="#home" onclick="closeMenuAndHome()" class="logo-link">
                     <img src="assets/logo.jpg" alt="Tiby.sexy Logo" class="header-logo circular-logo">
                 </a>
             </div>
 
+            <!-- Favoritos (Direita) -->
             <div class="header-actions">
                 <button class="action-btn" id="btn-favorites-trigger" aria-label="Favoritos">
                     <i class="fa-regular fa-heart"></i>
@@ -49,6 +47,7 @@
         </div>
     </header>
 
+    <!-- MOBILE MENU DRAWER -->
     <div class="mobile-menu-drawer" id="mobile-menu-panel">
         <div class="drawer-overlay" id="mobile-menu-overlay"></div>
         <div class="drawer-content">
@@ -61,8 +60,7 @@
             <nav class="mobile-nav">
                 <ul>
                     <li><a href="#home" class="mobile-nav-link active" onclick="closeMenuAndHome()">Início</a></li>
-                    <li><hr class="menu-divider"></li>
-                    <li><a href="https://wa.me/5521991670127?text=Quero%20entrar%20no%20grupo%20de%20descontos%20e%20garantir%20meus%20cupons" target="_blank" class="mobile-nav-link text-gold"><i class="fa-brands fa-whatsapp"></i> Grupo VIP</a></li>
+
                     <li><a href="#ajuda" class="mobile-nav-link" onclick="openInstModal('how-to-buy')"><i class="fa-regular fa-circle-question"></i> Como Pedir</a></li>
                     <li><a href="#rastreio" class="mobile-nav-link" onclick="openInstModal('order-tracking')"><i class="fa-solid fa-truck-ramp-box"></i> Rastrear Caixa</a></li>
                 </ul>
@@ -76,15 +74,17 @@
         </div>
     </div>
 
-    <!-- 3. CONTEÚDO PRINCIPAL -->
+    <!-- 3. CONTEÚDO PRINCIPAL (APP STYLE) -->
     <main class="app-container">
         
+        <!-- Bloco de Apresentação e Boas-Vindas -->
         <section class="app-welcome-section">
             <span class="app-welcome-subtitle">Vista sua melhor versão</span>
             <h1 class="app-welcome-title">Catálogo Virtual</h1>
             <p class="app-welcome-desc">SURPREENDA-SE! Faça seu pedido ou tire dúvidas diretamente com nossas vendedoras através do nosso catálogo virtual.</p>
         </section>
 
+        <!-- Filtros Unificados: Dropdown de Categorias + Campo de Busca -->
         <section class="app-filter-section">
             <div class="app-filter-controls">
                 <div class="search-input-wrapper-app">
@@ -96,27 +96,23 @@
             </div>
         </section>
 
+        <!-- Vitrine de Produtos (Compacta) -->
         <section class="app-products-section" id="produtos">
             <h2 class="app-section-heading" id="catalog-section-title">Lingeries em Destaque</h2>
             <div class="products-grid app-products-grid" id="products-catalog-grid">
+                <!-- Os produtos serão gerados dinamicamente via Javascript -->
             </div>
         </section>
 
-        <section class="app-vip-section" id="grupo-vip">
-            <div class="app-vip-card">
-                <h3>Grupo VIP de Descontos</h3>
-                <p>Entre no grupo do WhatsApp da Tiby.sexy para receber lotes de fábrica com descontos relâmpago de até 30% e cupons mensais.</p>
-                <a href="https://wa.me/5521991670127?text=Quero%20entrar%20no%20grupo%20de%20descontos%20e%20garantir%20meus%20cupons" target="_blank" class="btn btn-whatsapp-large btn-glow btn-block">
-                    <i class="fa-brands fa-whatsapp"></i> Acessar Grupo de Descontos
-                </a>
-            </div>
-        </section>
+
+        <!-- SEÇÃO DETALHES DO PRODUTO (PÁGINA DEDICADA SPA) -->
         <section class="app-product-details-view" id="app-product-details-view" style="display: none;">
+            <!-- Gerado dinamicamente via JS -->
         </section>
         
     </main>
 
-    <!-- 4. FOOTER -->
+    <!-- 4. FOOTER SIMPLIFICADO -->
     <footer class="app-footer">
         <div class="footer-container">
             <div class="app-footer-links">
@@ -143,7 +139,9 @@
         </div>
     </footer>
 
+    <!-- ==================== ELEMENTOS FLUTUANTES / INTERATIVOS ==================== -->
 
+    <!-- BOTÃO FLUTUANTE DO WHATSAPP (ESTILO CATÁLOGO) -->
     <div class="whatsapp-floating-group">
         <a href="https://wa.me/5521991670127?text=Olá!%20Estou%20navegando%20no%20catálogo%20e%20gostaria%20de%20tirar%20uma%20dúvida." class="whatsapp-floating-tooltip" target="_blank">
             Dúvidas? Fale conosco
@@ -155,6 +153,7 @@
 
 
 
+    <!-- MODAL INSTITUCIONAL (COMO COMPRAR, POLÍTICAS) -->
     <div class="modal-wrapper" id="institutional-modal">
         <div class="modal-overlay" onclick="closeInstModal()"></div>
         <div class="modal-content inst-modal-content">
@@ -162,10 +161,12 @@
                 <i class="fa-solid fa-xmark"></i>
             </button>
             <div id="inst-modal-body-content">
+                <!-- Preenchido via JS baseado no link clicado -->
             </div>
         </div>
     </div>
 
+    <!-- Custom App JavaScript -->
     <script src="app.js"></script>
 </body>
 </html>
