@@ -2145,6 +2145,105 @@ img {
     list-style: disc;
 }
 
+/* Modal de Seleção de Vendedoras */
+.seller-modal-content {
+    max-width: 420px;
+    width: 90%;
+    padding: 30px 24px;
+    border-radius: var(--border-radius-lg);
+    background: var(--bg-card);
+    border: 1px solid var(--border-gold-glow);
+    box-shadow: var(--shadow-deep);
+    text-align: center;
+}
+.seller-modal-header {
+    margin-bottom: 24px;
+}
+.seller-modal-badge {
+    height: 52px;
+    width: 52px;
+    margin: 0 auto 14px;
+    border-radius: 50%;
+    background: rgba(37, 211, 102, 0.15);
+    color: #25D366;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+}
+.seller-modal-header h3 {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    color: var(--text-white);
+    margin-bottom: 6px;
+}
+.seller-modal-header p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+.seller-list-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.seller-option-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 18px;
+    border-radius: var(--border-radius-md);
+    background: var(--bg-main);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    width: 100%;
+    text-align: left;
+}
+.seller-option-card:hover {
+    border-color: var(--accent-gold);
+    background: rgba(212, 175, 55, 0.08);
+    transform: translateY(-2px);
+}
+.seller-avatar-circle {
+    height: 42px;
+    width: 42px;
+    border-radius: 50%;
+    background: var(--accent-gold);
+    color: var(--text-dark);
+    font-weight: 700;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.seller-details-text {
+    flex: 1;
+    margin-left: 14px;
+    display: flex;
+    flex-direction: column;
+}
+.seller-name-label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-white);
+}
+.seller-status-label {
+    font-size: 0.75rem;
+    color: #25D366;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 2px;
+}
+.seller-status-label i {
+    font-size: 0.5rem;
+}
+.seller-wa-icon {
+    font-size: 1.4rem;
+    color: #25D366;
+}
+
 /* ==========================================================================
    18. RESPONSIVIDADE E MEDIA QUERIES (MOBILE-FIRST)
    ========================================================================== */
