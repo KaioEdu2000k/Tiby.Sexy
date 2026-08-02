@@ -569,7 +569,7 @@ function updateSellerOnlineStatus() {
 
 function openSellerModal(message) {
     const rawMsg = (message === 'general' || !message)
-        ? "Olá! Estou navegando no catálogo Tiby.sexy e gostaria de tirar uma dúvida."
+        ? "Olá! Estou navegando no catálogo da Tiby Sexy e gostaria de tirar uma dúvida."
         : message;
     
     const encodedText = encodeURIComponent(rawMsg);
