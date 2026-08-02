@@ -1,60 +1,102 @@
- 
+/* ==========================================================================
+   TIBY.SEXY - LÓGICA E REGRAS DE NEGÓCIO DO CATÁLOGO DIGITAL (VANILLA JS)
+   ========================================================================== */
+
 // 1. BANCO DE DADOS DE PRODUTOS (COM CORES E TAMANHOS)
 const PRODUCTS_DATA = [
     {
         id: 1,
-        name: "Conjunto Corset Rendado Morgana",
+        name: "Calcinha Veneno",
         category: "lingeries",
-        priceRegular: 69.90,
-        pricePromo: 49.90,
-        image: "assets/conjunto_luxo.png",
-        sizes: ["P", "M", "G", "GG"],
-        colors: ["Preto", "Borgonha"],
-        description: "Conjunto corset premium rendado com aro de sustentação, alças reguláveis e detalhe em pingente banhado. Confeccionado em renda antialérgica ultra-macia. Perfeito para realçar as curvas com elegância.",
-        isNew: false,
+        priceRegular: 49.90,
+        pricePromo: 39.90,
+        image: "assets/Calcinhas Veneno.jpeg",
+        sizes: ["Único"],
+        colors: ["Preto/Vermelho"],
+        description: "Calcinha sensual com caimento perfeito e toque macio. Design exclusivo para proporcionar conforto e extrema sensualidade.",
+        isNew: true,
         isHot: true
     },
     {
         id: 2,
-        name: "Body de Renda Premium Bordeaux",
+        name: "Conjunto Luxúria",
         category: "lingeries",
-        priceRegular: 59.90,
-        pricePromo: 39.90,
-        image: "assets/body_renda.png",
-        sizes: ["P", "M", "G", "GG"],
-        colors: ["Borgonha"],
-        description: "Body luxo em renda francesa e tule macio na cor vinho bordeaux. Possui costas semi-abertas com regulagem e forro de algodão na parte inferior. Uma peça curinga para compor looks casuais ou momentos especiais.",
-        isNew: true,
-        isHot: false
+        priceRegular: 84.90,
+        pricePromo: 64.90,
+        image: "assets/Conjunto Luxúria.jpeg",
+        sizes: ["G", "GG"],
+        colors: ["Preto"],
+        description: "Conjunto sofisticado em renda premium com caimento impecável e detalhes marcantes. Ideal para quem busca elegância e conforto.",
+        isNew: false,
+        isHot: true
     },
     {
         id: 3,
-        name: "Conjunto Cropped Veludo Francês",
+        name: "Conjunto Siena",
         category: "lingeries",
-        priceRegular: 79.90,
-        pricePromo: 54.90,
-        image: "assets/conjunto_luxo.png",
-        sizes: ["P", "M", "G"],
-        colors: ["Preto", "Vinho"],
-        description: "Conjunto com base cropped em veludo macio e detalhes em renda chantilly. Alças de cetim brilhante e fechamento triplo nas costas para ajuste perfeito no corpo.",
+        priceRegular: 84.90,
+        pricePromo: 64.90,
+        image: "assets/Conjunto Siena.jpeg",
+        sizes: ["G", "GG"],
+        colors: ["Preto"],
+        description: "Conjunto delicado com aro e detalhes de acabamento de altíssima qualidade. Valoriza e sustenta com total elegância.",
         isNew: true,
         isHot: false
     },
     {
         id: 4,
-        name: "Baby Doll de Tule Mary",
+        name: "Conjunto Obsessão",
         category: "lingeries",
-        priceRegular: 49.90,
-        pricePromo: 34.90,
-        image: "assets/body_renda.png",
-        sizes: ["M", "G", "GG"],
-        colors: ["Preto", "Branco"],
-        description: "Baby doll leve em tule trabalhado, com bojo moldado de renda e alça fina regulável. Shorts curtinho em microfibra macia. Caimento solto e super confortável para noites luxuosas.",
+        priceRegular: 139.90,
+        pricePromo: 109.90,
+        image: "assets/Conjunto Obsessão.jpeg",
+        sizes: ["GG"],
+        colors: ["Preto"],
+        description: "Conjunto luxuoso com acabamentos impecáveis, suporte perfeito e estrutura diferenciada para realçar todas as curvas.",
         isNew: false,
-        isHot: false
+        isHot: true
     },
     {
         id: 5,
+        name: "Body Magnólia",
+        category: "lingeries",
+        priceRegular: 149.90,
+        pricePromo: 119.90,
+        image: "assets/Body Magnólia.jpeg",
+        sizes: ["P", "M", "G"],
+        colors: ["Preto"],
+        description: "Body sensual e elegante em renda premium e transparências sutis. Perfeito para compor looks incríveis e marcantes.",
+        isNew: true,
+        isHot: true
+    },
+    {
+        id: 6,
+        name: "Conjunto Desejo",
+        category: "lingeries",
+        priceRegular: 169.90,
+        pricePromo: 139.90,
+        image: "assets/Conjunto Desejo.jpeg",
+        sizes: ["P", "M", "G"],
+        colors: ["Preto"],
+        description: "Conjunto em renda trabalhada e design sensual marcante. Excelente sustentação e conforto direto da fábrica.",
+        isNew: false,
+        isHot: true
+    },
+    {
+        id: 7,
+        name: "Conjunto Desejo Rosa",
+        category: "lingeries",
+        priceRegular: 169.90,
+        pricePromo: 139.90,
+        image: "assets/Conjunto Desejo Rosa.jpeg",
+        sizes: ["P", "M", "G"],
+        colors: ["Rosa"],
+        description: "Edição especial do Conjunto Desejo em tom rosa apaixonante com renda fina e modelagem impecável.",
+        isNew: true,
+        isHot: true
+    },
+    {
+        id: 8,
         name: "Body Splash Hidratante Alleva Glow 200ml",
         category: "cosmeticos",
         priceRegular: 39.90,
@@ -62,12 +104,12 @@ const PRODUCTS_DATA = [
         image: "assets/body_splash.png",
         sizes: [],
         colors: [],
-        description: "Fragrância floral-oriental marcante com micropartículas de brilho dourado (shimmer) que iluminam a pele. Contém agentes hidratantes e fixação prolongada. O toque final que exala sensualidade.",
+        description: "Fragrância floral-oriental marcante com micropartículas de brilho dourado (shimmer) que iluminam a pele. Contém agentes hidratantes e fixação prolongada.",
         isNew: false,
         isHot: true
     },
     {
-        id: 6,
+        id: 9,
         name: "Gel Comestível de Massagem Feitiços 35ml",
         category: "cosmeticos",
         priceRegular: 19.90,
@@ -75,12 +117,12 @@ const PRODUCTS_DATA = [
         image: "assets/body_splash.png",
         sizes: [],
         colors: [],
-        description: "Gel aromático beijável para massagem corporal com efeito de aquecimento ao soprar. Ideal para momentos a dois. Sabores sortidos de alta aceitação no mercado.",
+        description: "Gel aromático beijável para massagem corporal com efeito de aquecimento ao soprar. Ideal para momentos a dois.",
         isNew: false,
         isHot: false
     },
     {
-        id: 7,
+        id: 10,
         name: "Cartão de Agradecimento Thank You - 20 UND",
         category: "papelaria",
         priceRegular: 14.90,
@@ -88,47 +130,8 @@ const PRODUCTS_DATA = [
         image: "assets/papelaria_luxo.png",
         sizes: [],
         colors: [],
-        description: "Papelaria de luxo para lojistas. Cartões em papel couché fosco 250g com impressão hot-stamping dourada 'Obrigada por escolher a Tiby'. Essencial para elevar a experiência de unboxing do seu cliente.",
+        description: "Papelaria de luxo para lojistas. Cartões em papel couché fosco 250g com impressão hot-stamping dourada 'Obrigada por escolher a Tiby'.",
         isNew: false,
-        isHot: false
-    },
-    {
-        id: 8,
-        name: "Tag de Preço Look do Dia - 20 UND",
-        category: "papelaria",
-        priceRegular: 12.90,
-        pricePromo: 8.90,
-        image: "assets/papelaria_luxo.png",
-        sizes: [],
-        colors: [],
-        description: "Etiquetas premium de preço em papel cartão preto com logo dourada, furação e barbante de algodão encerado incluso. Valorize as peças da sua marca.",
-        isNew: false,
-        isHot: false
-    },
-    {
-        id: 9,
-        name: "Kit Lucro Rápido - 3 Conjuntos + 1 Body Splash",
-        category: "kits",
-        priceRegular: 220.00,
-        pricePromo: 159.90,
-        image: "assets/banner.png",
-        sizes: ["P/M", "G/GG"],
-        colors: ["Misto"],
-        description: "Combo perfeito para revenda. Contém 3 conjuntos de lingeries rendadas premium de tamanhos variados e 1 Body Splash Alleva Glow. Ganho estimado de até R$ 180,00 na revenda unitária.",
-        isNew: false,
-        isHot: true
-    },
-    {
-        id: 10,
-        name: "Kit Deslizando - Bodysuit + Gel Estimulante",
-        category: "kits",
-        priceRegular: 79.90,
-        pricePromo: 59.90,
-        image: "assets/body_renda.png",
-        sizes: ["P", "M", "G", "GG"],
-        colors: ["Borgonha"],
-        description: "Kit especial contendo 1 Body de Renda Bordeaux e 1 Gel de Massagem Feitiços. Ideal para presentear ou para uso pessoal em noites especiais com economia garantida.",
-        isNew: true,
         isHot: false
     }
 ];
@@ -141,6 +144,7 @@ let showingFavoritesOnly = false;
 let defaultCatalogTitle = "Produtos em Destaque";
 const WHATSAPP_NUMBER = "5521991670127";
 
+// Seletores das visualizações
 const welcomeSection = document.querySelector(".app-welcome-section");
 const filterSection = document.querySelector(".app-filter-section");
 const productsSection = document.querySelector(".app-products-section");
@@ -151,6 +155,7 @@ const productsGrid = document.getElementById("products-catalog-grid");
 const favBadge = document.getElementById("favorites-badge-count");
 const mobileMenu = document.getElementById("mobile-menu-panel");
 
+// Estado da página de detalhes ativa
 let selectedDetailProduct = null;
 let selectedDetailSize = null;
 let selectedDetailColor = null;
@@ -167,11 +172,13 @@ document.addEventListener("DOMContentLoaded", () => {
     updateFavoritesBadge();
     setupEventListeners();
     
+    // Executa roteador inicial
     router();
 });
 
 window.addEventListener("hashchange", router);
 
+// Roteador SPA baseado em Hash
 function router() {
     const hash = window.location.hash;
     const match = hash.match(/^#produto\/(\d+)$/);
@@ -193,7 +200,7 @@ function router() {
 
 // 4. EVENT LISTENERS
 function setupEventListeners() {
-    
+    // Menu Mobile
     document.getElementById("open-mobile-menu").addEventListener("click", () => {
         mobileMenu.classList.add("active");
     });
@@ -204,10 +211,12 @@ function setupEventListeners() {
         mobileMenu.classList.remove("active");
     });
 
+    // Favorites Trigger
     document.getElementById("btn-favorites-trigger").addEventListener("click", () => {
         window.location.hash = "#favoritos";
     });
 
+    // Foco e teclado ao clicar na lupa
     const searchBtn = document.querySelector(".search-btn-app");
     const searchInput = document.getElementById("input-search-app");
     if (searchBtn && searchInput) {
@@ -220,13 +229,16 @@ function setupEventListeners() {
 // 5. NAVEGAÇÃO DE PÁGINAS (SPA)
 function showCatalogView() {
     showingFavoritesOnly = false;
+    // Oculta Detalhes
     detailsView.style.display = "none";
-
+    
+    // Mostra Vitrine
     welcomeSection.style.display = "block";
     filterSection.style.display = "block";
     productsSection.style.display = "block";
     vipSection.style.display = "block";
     
+    // Sincroniza estado de filtros na UI
     const dropdown = document.getElementById("select-category-dropdown");
     if (dropdown) dropdown.value = currentFilter;
     
@@ -244,6 +256,7 @@ function goBackToCatalog() {
     window.location.hash = "#";
 }
 
+// 6. RENDERIZAR VITRINE
 function renderCatalog() {
     if (!productsGrid) return;
     productsGrid.innerHTML = "";
@@ -272,14 +285,17 @@ function renderCatalog() {
         const card = document.createElement("div");
         card.className = "product-card";
         
+        // Evita comportamento nativo de long-press/drag e define clique
         card.addEventListener("click", () => navigateToProduct(product.id));
         card.addEventListener("contextmenu", e => e.preventDefault());
         card.addEventListener("dragstart", e => e.preventDefault());
         
+        // Badges
         let badgeHtml = "";
         if (product.isNew) badgeHtml = `<span class="badge-tag tag-new">Novo</span>`;
         else if (product.isHot) badgeHtml = `<span class="badge-tag tag-hot">Mais Vendido</span>`;
 
+        // Tamanhos
         let sizeBadgesHtml = "";
         if (product.sizes.length > 0) {
             sizeBadgesHtml = `<div class="product-size-badges">` + 
@@ -320,6 +336,7 @@ function handleDropdownFilter(catVal) {
     renderCatalog();
 }
 
+// Permite buscar digitando
 function handleSearchInput(query) {
     currentSearch = query;
     renderCatalog();
@@ -413,6 +430,7 @@ function showFavoritesOnly(shouldScroll = true) {
             const card = document.createElement("div");
             card.className = "product-card";
             
+            // Evita comportamento nativo de long-press/drag e define clique
             card.addEventListener("click", () => navigateToProduct(product.id));
             card.addEventListener("contextmenu", e => e.preventDefault());
             card.addEventListener("dragstart", e => e.preventDefault());
@@ -454,19 +472,23 @@ function renderProductDetails(productId) {
         return;
     }
 
+    // Atualiza Estado
     selectedDetailProduct = product;
     selectedDetailSize = product.sizes.length > 0 ? product.sizes[0] : null;
     selectedDetailColor = product.colors.length > 0 ? product.colors[0] : null;
     selectedDetailQty = 1;
 
+    // Oculta Catálogo/Vitrine
     welcomeSection.style.display = "none";
     filterSection.style.display = "none";
     productsSection.style.display = "none";
     vipSection.style.display = "none";
 
+    // Mostra Detalhes
     detailsView.style.display = "block";
     detailsView.innerHTML = "";
 
+    // Grade de tamanhos HTML
     let sizeSelectorHtml = "";
     if (product.sizes.length > 0) {
         sizeSelectorHtml = `
@@ -481,6 +503,7 @@ function renderProductDetails(productId) {
         `;
     }
 
+    // Grade de cores HTML
     let colorSelectorHtml = "";
     if (product.colors.length > 0) {
         colorSelectorHtml = `
@@ -540,6 +563,7 @@ function renderProductDetails(productId) {
         </div>
     `;
 
+    // Sobe a página ao topo
     window.scrollTo(0, 0);
 }
 
