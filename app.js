@@ -94,45 +94,6 @@ const PRODUCTS_DATA = [
         description: "Edição especial do Conjunto Desejo em tom rosa apaixonante com renda fina e modelagem impecável.",
         isNew: true,
         isHot: true
-    },
-    {
-        id: 8,
-        name: "Body Splash Hidratante Alleva Glow 200ml",
-        category: "cosmeticos",
-        priceRegular: 39.90,
-        pricePromo: 29.90,
-        image: "assets/body_splash.png",
-        sizes: [],
-        colors: [],
-        description: "Fragrância floral-oriental marcante com micropartículas de brilho dourado (shimmer) que iluminam a pele. Contém agentes hidratantes e fixação prolongada.",
-        isNew: false,
-        isHot: true
-    },
-    {
-        id: 9,
-        name: "Gel Comestível de Massagem Feitiços 35ml",
-        category: "cosmeticos",
-        priceRegular: 19.90,
-        pricePromo: 14.90,
-        image: "assets/body_splash.png",
-        sizes: [],
-        colors: [],
-        description: "Gel aromático beijável para massagem corporal com efeito de aquecimento ao soprar. Ideal para momentos a dois.",
-        isNew: false,
-        isHot: false
-    },
-    {
-        id: 10,
-        name: "Cartão de Agradecimento Thank You - 20 UND",
-        category: "papelaria",
-        priceRegular: 14.90,
-        pricePromo: 9.90,
-        image: "assets/papelaria_luxo.png",
-        sizes: [],
-        colors: [],
-        description: "Papelaria de luxo para lojistas. Cartões em papel couché fosco 250g com impressão hot-stamping dourada 'Obrigada por escolher a Tiby'.",
-        isNew: false,
-        isHot: false
     }
 ];
 
