@@ -1220,6 +1220,7 @@ img {
 .footer-payments-security {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
     gap: 25px;
     flex-wrap: wrap;
 }
@@ -1227,6 +1228,7 @@ img {
 .payment-icons {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 12px;
     font-size: 1.8rem;
     color: var(--text-muted);
@@ -2852,8 +2854,13 @@ img {
     }
     .app-footer-bottom {
         flex-direction: column;
+        align-items: center;
         text-align: center;
         gap: 15px;
+    }
+    .footer-payments-security, .app-payment-icons {
+        justify-content: center;
+        width: 100%;
     }
 }
 
