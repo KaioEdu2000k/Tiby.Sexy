@@ -68,7 +68,7 @@
             <div class="drawer-footer">
                 <div class="social-links">
                     <a href="https://instagram.com/boutiquemariaa" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://wa.me/5521991670127?text=Olá!%20Estou%20navegando%20no%20catálogo%20e%20gostaria%20de%20tirar%20uma%20dúvida." target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="javascript:void(0)" onclick="openSellerModal('general')" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
                 </div>
             </div>
         </div>
@@ -143,12 +143,12 @@
 
     <!-- BOTÃO FLUTUANTE DO WHATSAPP (ESTILO CATÁLOGO) -->
     <div class="whatsapp-floating-group">
-        <a href="https://wa.me/5521991670127?text=Olá!%20Estou%20navegando%20no%20catálogo%20e%20gostaria%20de%20tirar%20uma%20dúvida." class="whatsapp-floating-tooltip" target="_blank">
+        <button class="whatsapp-floating-tooltip" onclick="openSellerModal('general')">
             Dúvidas? Fale conosco
-        </a>
-        <a href="https://wa.me/5521991670127?text=Olá!%20Estou%20navegando%20no%20catálogo%20e%20gostaria%20de%20tirar%20uma%20dúvida." class="whatsapp-floating-btn" target="_blank" aria-label="Fale Conosco no WhatsApp">
+        </button>
+        <button class="whatsapp-floating-btn" onclick="openSellerModal('general')" aria-label="Fale Conosco no WhatsApp">
             <i class="fa-brands fa-whatsapp"></i>
-        </a>
+        </button>
     </div>
 
 
@@ -166,7 +166,40 @@
         </div>
     </div>
 
+    <!-- MODAL DE SELEÇÃO DE VENDEDORA WHATSAPP -->
+    <div class="modal-wrapper" id="seller-choice-modal" style="display: none;">
+        <div class="modal-overlay" onclick="closeSellerModal()"></div>
+        <div class="modal-content seller-modal-content">
+            <button class="close-modal-btn" onclick="closeSellerModal()" aria-label="Fechar">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="seller-modal-header">
+                <div class="seller-modal-badge"><i class="fa-brands fa-whatsapp"></i></div>
+                <h3>Falar no WhatsApp</h3>
+                <p>Selecione uma de nossas vendedoras para concluir seu atendimento:</p>
+            </div>
+            <div class="seller-list-group">
+                <button class="seller-option-card" onclick="selectSellerAndRedirect('5531984818979')">
+                    <div class="seller-avatar-circle">ME</div>
+                    <div class="seller-details-text">
+                        <span class="seller-name-label">Maria Eduarda</span>
+                        <span class="seller-status-label"><i class="fa-solid fa-circle"></i> Vendedora Online</span>
+                    </div>
+                    <i class="fa-brands fa-whatsapp seller-wa-icon"></i>
+                </button>
+                <button class="seller-option-card" onclick="selectSellerAndRedirect('5531980207495')">
+                    <div class="seller-avatar-circle">FE</div>
+                    <div class="seller-details-text">
+                        <span class="seller-name-label">Fernanda</span>
+                        <span class="seller-status-label"><i class="fa-solid fa-circle"></i> Vendedora Online</span>
+                    </div>
+                    <i class="fa-brands fa-whatsapp seller-wa-icon"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Custom App JavaScript -->
-    <script src="app.js?v=4"></script>
+    <script src="app.js?v=5"></script>
 </body>
 </html>
