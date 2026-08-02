@@ -2199,6 +2199,7 @@ img {
     transition: var(--transition-smooth);
     width: 100%;
     text-align: left;
+    text-decoration: none;
 }
 .seller-option-card:hover {
     border-color: var(--accent-gold);
