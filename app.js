@@ -550,14 +550,19 @@ function adjustDetailsQty(delta) {
 }
 
 // 11. REDIRECIONAR AO WHATSAPP (SELEÇÃO DE VENDEDORAS)
-let pendingWhatsAppMessage = "";
-
-function openSellerModal(msgOrType) {
-    if (msgOrType === 'general' || !msgOrType) {
-        pendingWhatsAppMessage = encodeURIComponent("Olá! Estou navegando no catálogo Tiby.sexy e gostaria de tirar uma dúvida.");
-    } else {
-        pendingWhatsAppMessage = msgOrType;
-    }
+function openSellerModal(message) {
+    const rawMsg = (message === 'general' || !message)
+        ? "Olá! Estou navegando no catálogo Tiby.sexy e gostaria de tirar uma dúvida."
+        : message;
+    
+    const encodedText = encodeURIComponent(rawMsg);
+    
+    const mariaLink = document.getElementById("seller-link-maria");
+    const fernandaLink = document.getElementById("seller-link-fernanda");
+    
+    if (mariaLink) mariaLink.href = `https://wa.me/5531984818979?text=${encodedText}`;
+    if (fernandaLink) fernandaLink.href = `https://wa.me/5531980207495?text=${encodedText}`;
+    
     const modal = document.getElementById("seller-choice-modal");
     if (modal) modal.style.display = "flex";
 }
@@ -565,12 +570,6 @@ function openSellerModal(msgOrType) {
 function closeSellerModal() {
     const modal = document.getElementById("seller-choice-modal");
     if (modal) modal.style.display = "none";
-}
-
-function selectSellerAndRedirect(phone) {
-    closeSellerModal();
-    const url = `https://api.whatsapp.com/send?phone=${phone}&text=${pendingWhatsAppMessage}`;
-    window.location.href = url;
 }
 
 function buyProductWhatsApp() {
