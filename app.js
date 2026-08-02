@@ -582,7 +582,7 @@ function openInstModal(pageKey) {
                 <li>Selecione suas opções de <strong>tamanho</strong>, <strong>cor</strong> e a <strong>quantidade</strong>.</li>
                 <li>Clique no botão destacado <strong>COMPRAR PELO WHATSAPP</strong>.</li>
                 <li>O sistema abrirá o chat oficial da Tiby com a mensagem pronta descrevendo o item escolhido.</li>
-                <li>Nossa vendedora informará sobre a disponibilidade física, valores especiais utilizando cupons de desconto e finalizará seu faturamento.</li>
+                <li>Nossa vendedora informará sobre a disponibilidade física e finalizará seu faturamento.</li>
             </ol>
         `;
     } else if (pageKey === "exchange-policy") {
