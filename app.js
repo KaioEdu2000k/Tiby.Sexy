@@ -602,11 +602,13 @@ function closeSellerModal() {
 function buyProductWhatsApp() {
     if (!selectedDetailProduct) return;
     
-    let sizeText = selectedDetailSize ? `\n- Tamanho: *${selectedDetailSize}*` : "";
-    let colorText = selectedDetailColor ? `\n- Cor: *${selectedDetailColor}*` : "";
-    let qtyText = selectedDetailQty > 1 ? `\n- Quantidade: *${selectedDetailQty}x*` : "";
+    let detailsArr = [];
+    if (selectedDetailSize) detailsArr.push(`- Tamanho: ${selectedDetailSize}`);
+    if (selectedDetailColor) detailsArr.push(`- Cor: ${selectedDetailColor}`);
+    if (selectedDetailQty > 1) detailsArr.push(`- Quantidade: ${selectedDetailQty}x`);
     
-    let message = `Olá, tenho interesse no *${selectedDetailProduct.name}*.${sizeText}${colorText}${qtyText}`;
+    let detailsText = detailsArr.length > 0 ? `\n\n${detailsArr.join('\n')}` : "";
+    let message = `Olá! Tenho interesse no ${selectedDetailProduct.name}.${detailsText}`;
     
     openSellerModal(message);
 }
