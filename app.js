@@ -460,14 +460,13 @@ function renderProductDetails(productId) {
     if (product.colors && product.colors.length > 1) {
         colorSelectorHtml = `
             <div class="details-option-group">
-                <h4 class="details-option-title">Escolha a Cor:</h4>
+                <h4 class="details-option-title">Escolha a Cor: <span id="selected-color-name-label" style="color: var(--accent-gold); font-weight: 600; font-size: 0.9rem;">${selectedDetailColor || product.colors[0]}</span></h4>
                 <div class="color-options-row">
                     ${product.colors.map((c, idx) => {
                         const classColor = c.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
                         return `
-                            <button class="color-option-btn ${idx === 0 ? 'active' : ''}" onclick="selectDetailsColor(this, '${c}')" title="${c}">
-                                <span class="color-dot color-${classColor}"></span>
-                                <span>${c}</span>
+                            <button class="color-swatch-btn ${idx === 0 ? 'active' : ''}" onclick="selectDetailsColor(this, '${c}')" title="${c}" aria-label="${c}">
+                                <span class="swatch-circle color-${classColor}"></span>
                             </button>
                         `;
                     }).join("")}
@@ -529,10 +528,13 @@ function selectDetailsSize(buttonEl, size) {
 }
 
 function selectDetailsColor(buttonEl, color) {
-    const buttons = document.querySelectorAll(".color-option-btn");
+    const buttons = document.querySelectorAll(".color-swatch-btn");
     buttons.forEach(btn => btn.classList.remove("active"));
     buttonEl.classList.add("active");
     selectedDetailColor = color;
+
+    const label = document.getElementById("selected-color-name-label");
+    if (label) label.textContent = color;
 
     // Troca dinâmica de imagem por cor selecionada
     if (selectedDetailProduct && selectedDetailProduct.colorImages && selectedDetailProduct.colorImages[color]) {
@@ -550,6 +552,21 @@ function adjustDetailsQty(delta) {
 }
 
 // 11. REDIRECIONAR AO WHATSAPP (SELEÇÃO DE VENDEDORAS)
+function updateSellerOnlineStatus() {
+    const hours = new Date().getHours();
+    const isOnline = hours >= 8 && hours < 21; // Online entre 08:00 e 21:00
+    
+    const mariaStatus = document.getElementById("maria-status-text");
+    const fernandaStatus = document.getElementById("fernanda-status-text");
+    
+    const statusHtml = isOnline 
+        ? `<i class="fa-solid fa-circle" style="color: #25D366; font-size: 0.5rem;"></i> Vendedora Online`
+        : `<i class="fa-regular fa-clock" style="color: var(--accent-gold); font-size: 0.7rem;"></i> Atendimento via WhatsApp`;
+
+    if (mariaStatus) mariaStatus.innerHTML = statusHtml;
+    if (fernandaStatus) fernandaStatus.innerHTML = statusHtml;
+}
+
 function openSellerModal(message) {
     const rawMsg = (message === 'general' || !message)
         ? "Olá! Estou navegando no catálogo Tiby.sexy e gostaria de tirar uma dúvida."
@@ -563,6 +580,8 @@ function openSellerModal(message) {
     if (mariaLink) mariaLink.href = `https://wa.me/5531984818979?text=${encodedText}`;
     if (fernandaLink) fernandaLink.href = `https://wa.me/5531980207495?text=${encodedText}`;
     
+    updateSellerOnlineStatus();
+
     const modal = document.getElementById("seller-choice-modal");
     if (modal) {
         modal.style.display = "flex";
