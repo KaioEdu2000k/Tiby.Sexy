@@ -1,3 +1,6 @@
+/* ==========================================================================
+   TIBY.SEXY - ESTILO PREMIUM E DESIGN RESPONSIVO (MOBILE-FIRST) 111111111111
+   ========================================================================== */
 
 /* 1. VARIÁVEIS DO TEMA E RESET */
 :root {
@@ -155,9 +158,9 @@ img {
     filter: drop-shadow(0 0 3px var(--accent-gold));
 }
 
-/* 
-2. ANNOUNCEMENT BAR & MAIN HEADER
-*/
+/* ==========================================================================
+   2. ANNOUNCEMENT BAR & MAIN HEADER
+   ========================================================================== */
 .announcement-bar {
     background-color: var(--bg-darker);
     border-bottom: 1px solid rgba(212, 175, 55, 0.2);
@@ -310,14 +313,23 @@ img {
 }
 
 .mobile-menu-btn {
-    display: none; /* Desktop hidden */
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 1.3rem;
     cursor: pointer;
+    background: transparent;
+    border: none;
+    color: var(--text-white);
+    transition: var(--transition-smooth);
+}
+.mobile-menu-btn:hover {
+    color: var(--accent-gold);
 }
 
-/*
-3. HERO SECTION (BANNER INTEGRATION)
-*/
+/* ==========================================================================
+   3. HERO SECTION (BANNER INTEGRATION)
+   ========================================================================== */
 .hero-section {
     padding: 60px 0;
     position: relative;
@@ -458,9 +470,9 @@ img {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-/*
-4. FEATURES BAR (BARRA DE DIFERENCIAIS)
-*/
+/* ==========================================================================
+   4. FEATURES BAR (BARRA DE DIFERENCIAIS)
+   ========================================================================== */
 .features-bar {
     background-color: var(--bg-card);
     border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -515,9 +527,9 @@ img {
     color: var(--text-muted);
 }
 
-/*
-5. SECTIONS COMMON
-*/
+/* ==========================================================================
+   5. SECTIONS COMMON
+   ========================================================================== */
 .section-header {
     text-align: center;
     margin-bottom: 50px;
@@ -553,9 +565,9 @@ img {
     transform: translateX(-50%) rotate(45deg);
 }
 
-/*
-6. CATEGORIES SECTION
-*/
+/* ==========================================================================
+   6. CATEGORIES SECTION
+   ========================================================================== */
 .categories-section {
     padding: 80px 0;
     max-width: 1400px;
@@ -639,9 +651,9 @@ img {
     color: var(--accent-gold);
 }
 
-/*
+/* ==========================================================================
    7. VITRINE DE PRODUTOS
-*/
+   ========================================================================== */
 .products-section {
     padding: 80px 0;
     background-color: var(--bg-darker);
@@ -902,9 +914,9 @@ img {
     box-shadow: var(--shadow-red);
 }
 
-/*
-8. VIP BANNER SECTION
-*/
+/* ==========================================================================
+   8. VIP BANNER SECTION
+   ========================================================================== */
 .vip-banner-section {
     background: linear-gradient(rgba(7,7,7,0.85), rgba(7,7,7,0.85)), url('assets/banner.png') no-repeat center center / cover;
     padding: 100px 0;
@@ -1008,9 +1020,9 @@ img {
     box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
 }
 
-/*
-9. DEPOIMENTOS SECTION
-*/
+/* ==========================================================================
+   9. DEPOIMENTOS SECTION
+   ========================================================================== */
 .testimonials-section {
     padding: 80px 24px;
     max-width: 1400px;
@@ -1085,9 +1097,9 @@ img {
     margin-top: 2px;
 }
 
-/*
-10. FOOTER SECTION
-*/
+/* ==========================================================================
+   10. FOOTER SECTION
+   ========================================================================== */
 .main-footer {
     background-color: var(--bg-darker);
     border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -1246,9 +1258,9 @@ img {
     gap: 6px;
 }
 
-/*
-11. CARTRIDGE DRAWER (CARRINHO LATERAL)
-*/
+/* ==========================================================================
+   11. CARTRIDGE DRAWER (CARRINHO LATERAL)
+   ========================================================================== */
 .cart-drawer-wrapper, .mobile-menu-drawer, .modal-wrapper {
     position: fixed;
     inset: 0;
@@ -1551,9 +1563,9 @@ img {
     margin-top: 12px;
 }
 
-/*
-12. MOBILE MENU DRAWER
-*/
+/* ==========================================================================
+   12. MOBILE MENU DRAWER
+   ========================================================================== */
 .mobile-menu-drawer .drawer-content {
     position: absolute;
     top: 0;
@@ -1625,9 +1637,9 @@ img {
     color: var(--accent-gold);
 }
 
-/*
-13. MODALS (QUICK VIEW, INSTITUTIONAL, CHECKOUT, SUCCESS)
-*/
+/* ==========================================================================
+   13. MODALS (QUICK VIEW, INSTITUTIONAL, CHECKOUT, SUCCESS)
+   ========================================================================== */
 .modal-content {
     position: absolute;
     top: 50%;
@@ -1782,9 +1794,9 @@ img {
     font-size: 0.85rem;
 }
 
-/*
-14. CHECKOUT SIMULATION MODAL
-*/
+/* ==========================================================================
+   14. CHECKOUT SIMULATION MODAL
+   ========================================================================== */
 .checkout-modal-content {
     max-width: 650px;
     padding: 30px;
@@ -1914,9 +1926,9 @@ img {
     color: var(--accent-gold);
 }
 
-/*
-15. SUCCESS MODAL (QR CODE PIX E WHATSAPP REDIRECT)
-*/
+/* ==========================================================================
+   15. SUCCESS MODAL (QR CODE PIX E WHATSAPP REDIRECT)
+   ========================================================================== */
 .success-modal-content {
     max-width: 500px;
     text-align: center;
@@ -2012,9 +2024,9 @@ img {
     margin-bottom: 12px;
 }
 
-/*
+/* ==========================================================================
    16. BUSCA POPUP / MODAL BUSCA
-*/
+   ========================================================================== */
 .search-modal-content {
     max-width: 550px;
     padding: 30px;
@@ -2096,9 +2108,9 @@ img {
     font-weight: 600;
 }
 
-/*
-17. MODAL INSTITUCIONAL
-*/
+/* ==========================================================================
+   17. MODAL INSTITUCIONAL
+   ========================================================================== */
 .inst-modal-content {
     max-width: 600px;
     padding: 40px;
@@ -2133,18 +2145,13 @@ img {
     list-style: disc;
 }
 
-/*
-18. RESPONSIVIDADE E MEDIA QUERIES (MOBILE-FIRST)
-*/
+/* ==========================================================================
+   18. RESPONSIVIDADE E MEDIA QUERIES (MOBILE-FIRST)
+   ========================================================================== */
 
-/* Tablet & Menor Desktop (Abaixo de 1024px) */
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 768px) {
     .desktop-nav {
-        display: none; /* Esconde nav principal */
-    }
-    
-    .mobile-menu-btn {
-        display: block; /* Mostra hambúrguer */
+        display: none; /* Esconde nav principal no celular */
     }
     
     .hero-grid {
@@ -2342,9 +2349,9 @@ img {
     }
 }
 
-/*
-APP CATALOG RESTRUCTURE STYLES
-*/
+/* ==========================================================================
+   APP CATALOG RESTRUCTURE STYLES
+   ========================================================================== */
 
 /* Layout e Container Geral */
 .app-container {
