@@ -12,7 +12,7 @@ const PRODUCTS_DATA = [
         pricePromo: 39.90,
         image: "assets/Calcinhas Veneno.jpeg",
         sizes: ["Único"],
-        colors: ["Preto/Vermelho"],
+        colors: [],
         description: "Calcinha sensual com caimento perfeito e toque macio. Design exclusivo para proporcionar conforto e extrema sensualidade.",
         isNew: true,
         isHot: true
@@ -25,7 +25,7 @@ const PRODUCTS_DATA = [
         pricePromo: 64.90,
         image: "assets/Conjunto Luxúria.jpeg",
         sizes: ["G", "GG"],
-        colors: ["Preto"],
+        colors: [],
         description: "Conjunto sofisticado em renda premium com caimento impecável e detalhes marcantes. Ideal para quem busca elegância e conforto.",
         isNew: false,
         isHot: true
@@ -38,7 +38,7 @@ const PRODUCTS_DATA = [
         pricePromo: 64.90,
         image: "assets/Conjunto Siena.jpeg",
         sizes: ["G", "GG"],
-        colors: ["Preto"],
+        colors: [],
         description: "Conjunto delicado com aro e detalhes de acabamento de altíssima qualidade. Valoriza e sustenta com total elegância.",
         isNew: true,
         isHot: false
@@ -51,7 +51,7 @@ const PRODUCTS_DATA = [
         pricePromo: 109.90,
         image: "assets/Conjunto Obsessão.jpeg",
         sizes: ["GG"],
-        colors: ["Preto"],
+        colors: [],
         description: "Conjunto luxuoso com acabamentos impecáveis, suporte perfeito e estrutura diferenciada para realçar todas as curvas.",
         isNew: false,
         isHot: true
@@ -64,7 +64,7 @@ const PRODUCTS_DATA = [
         pricePromo: 119.90,
         image: "assets/Body Magnólia.jpeg",
         sizes: ["P", "M", "G"],
-        colors: ["Preto"],
+        colors: [],
         description: "Body sensual e elegante em renda premium e transparências sutis. Perfeito para compor looks incríveis e marcantes.",
         isNew: true,
         isHot: true
@@ -77,21 +77,12 @@ const PRODUCTS_DATA = [
         pricePromo: 139.90,
         image: "assets/Conjunto Desejo.jpeg",
         sizes: ["P", "M", "G"],
-        colors: ["Preto"],
-        description: "Conjunto em renda trabalhada e design sensual marcante. Excelente sustentação e conforto direto da fábrica.",
-        isNew: false,
-        isHot: true
-    },
-    {
-        id: 7,
-        name: "Conjunto Desejo Rosa",
-        category: "lingeries",
-        priceRegular: 169.90,
-        pricePromo: 139.90,
-        image: "assets/Conjunto Desejo Rosa.jpeg",
-        sizes: ["P", "M", "G"],
-        colors: ["Rosa"],
-        description: "Edição especial do Conjunto Desejo em tom rosa apaixonante com renda fina e modelagem impecável.",
+        colors: ["Preto", "Rosa"],
+        colorImages: {
+            "Preto": "assets/Conjunto Desejo.jpeg",
+            "Rosa": "assets/Conjunto Desejo Rosa.jpeg"
+        },
+        description: "Conjunto em renda trabalhada e design sensual marcante. Excelente sustentação e conforto direto da fábrica. Disponível em Preto e Rosa.",
         isNew: true,
         isHot: true
     }
@@ -464,18 +455,19 @@ function renderProductDetails(productId) {
         `;
     }
 
-    // Grade de cores HTML
+    // Grade de cores HTML (Apenas se houver mais de 1 opção)
     let colorSelectorHtml = "";
-    if (product.colors.length > 0) {
+    if (product.colors && product.colors.length > 1) {
         colorSelectorHtml = `
             <div class="details-option-group">
                 <h4 class="details-option-title">Escolha a Cor:</h4>
                 <div class="color-options-row">
                     ${product.colors.map((c, idx) => {
-                        const classColor = c.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""); // Normaliza strings
+                        const classColor = c.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
                         return `
                             <button class="color-option-btn ${idx === 0 ? 'active' : ''}" onclick="selectDetailsColor(this, '${c}')" title="${c}">
                                 <span class="color-dot color-${classColor}"></span>
+                                <span>${c}</span>
                             </button>
                         `;
                     }).join("")}
@@ -541,6 +533,14 @@ function selectDetailsColor(buttonEl, color) {
     buttons.forEach(btn => btn.classList.remove("active"));
     buttonEl.classList.add("active");
     selectedDetailColor = color;
+
+    // Troca dinâmica de imagem por cor selecionada
+    if (selectedDetailProduct && selectedDetailProduct.colorImages && selectedDetailProduct.colorImages[color]) {
+        const mainImg = document.getElementById("details-main-img");
+        if (mainImg) {
+            mainImg.src = selectedDetailProduct.colorImages[color];
+        }
+    }
 }
 
 function adjustDetailsQty(delta) {
@@ -570,7 +570,7 @@ function closeSellerModal() {
 function selectSellerAndRedirect(phone) {
     closeSellerModal();
     const url = `https://api.whatsapp.com/send?phone=${phone}&text=${pendingWhatsAppMessage}`;
-    window.open(url, "_blank");
+    window.location.href = url;
 }
 
 function buyProductWhatsApp() {
