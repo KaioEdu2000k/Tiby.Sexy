@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Custom Style Sheet -->
-    <link rel="stylesheet" href="style.css?v=6">
+    <link rel="stylesheet" href="style.css?v=8">
 </head>
 <body class="app-layout">
 
@@ -179,27 +179,27 @@
                 <p>Selecione uma de nossas vendedoras para concluir seu atendimento:</p>
             </div>
             <div class="seller-list-group">
-                <button class="seller-option-card" onclick="selectSellerAndRedirect('5531984818979')">
+                <a id="seller-link-maria" href="https://wa.me/5531984818979" target="_blank" onclick="closeSellerModal()" class="seller-option-card">
                     <div class="seller-avatar-circle">ME</div>
                     <div class="seller-details-text">
                         <span class="seller-name-label">Maria Eduarda</span>
                         <span class="seller-status-label"><i class="fa-solid fa-circle"></i> Vendedora Online</span>
                     </div>
                     <i class="fa-brands fa-whatsapp seller-wa-icon"></i>
-                </button>
-                <button class="seller-option-card" onclick="selectSellerAndRedirect('5531980207495')">
+                </a>
+                <a id="seller-link-fernanda" href="https://wa.me/5531980207495" target="_blank" onclick="closeSellerModal()" class="seller-option-card">
                     <div class="seller-avatar-circle">FE</div>
                     <div class="seller-details-text">
                         <span class="seller-name-label">Fernanda</span>
                         <span class="seller-status-label"><i class="fa-solid fa-circle"></i> Vendedora Online</span>
                     </div>
                     <i class="fa-brands fa-whatsapp seller-wa-icon"></i>
-                </button>
+                </a>
             </div>
         </div>
     </div>
 
     <!-- Custom App JavaScript -->
-    <script src="app.js?v=6"></script>
+    <script src="app.js?v=8"></script>
 </body>
 </html>
