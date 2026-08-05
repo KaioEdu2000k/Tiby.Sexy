@@ -80,7 +80,7 @@ const PRODUCTS_DATA = [
         colors: ["Preto", "Vermelho"],
         colorImages: {
             "Preto": "assets/Conjunto Desejo.jpeg",
-            "Rosa": "assets/Conjunto Desejo Vermelho.jpeg"
+            "Vermelho": "assets/Conjunto Desejo Rosa.jpeg"
         },
         description: "Conjunto em renda trabalhada e design sensual marcante. Excelente sustentação e conforto. Disponível em Preto e Vermelho.",
         isNew: true,
