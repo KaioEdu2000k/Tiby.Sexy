@@ -77,12 +77,12 @@ const PRODUCTS_DATA = [
         pricePromo: 119.90,
         image: "assets/Conjunto Desejo.jpeg",
         sizes: ["P", "M", "G"],
-        colors: ["Preto", "Rosa"],
+        colors: ["Preto", "Vermelho"],
         colorImages: {
             "Preto": "assets/Conjunto Desejo.jpeg",
             "Rosa": "assets/Conjunto Desejo Rosa.jpeg"
         },
-        description: "Conjunto em renda trabalhada e design sensual marcante. Excelente sustentação e conforto direto da fábrica. Disponível em Preto e Rosa.",
+        description: "Conjunto em renda trabalhada e design sensual marcante. Excelente sustentação e conforto. Disponível em Preto e Vermelho.",
         isNew: true,
         isHot: true
     }
